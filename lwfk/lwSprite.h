@@ -34,7 +34,7 @@ namespace lw{
         void setColor(const Color &color);
         void setZ(float z);
         void draw();
-//        GLuint getGlId();
+        TextureRes* getTexture();
         
     private:
         void uvInit();

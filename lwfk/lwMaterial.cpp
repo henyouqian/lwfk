@@ -115,7 +115,7 @@ namespace lw {
         
         virtual void use(const lw::Mesh &mesh, const PVRTMat4 &matWorld, const lw::Camera &camera) {
             glActiveTexture(GL_TEXTURE0+_unit);
-            glBindTexture(GL_TEXTURE_2D, _pTexture->getGlId());
+            glBindTexture(GL_TEXTURE_2D, _pTexture->glId);
             glUniform1i(_location, _unit);
         }
         

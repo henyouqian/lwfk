@@ -21,7 +21,6 @@
 #include "PVRTResourceFile.h"
 #include "PVRTString.h"
 #include "PVRTMemoryFileSystem.h"
-#include "../../lwfk/lwLog.h"
 
 CPVRTString CPVRTResourceFile::s_ReadPath;
 
@@ -124,7 +123,6 @@ CPVRTResourceFile::CPVRTResourceFile(const char* const pszFilename) :
 	m_pData(0),
 	m_Handle(0)
 {
-//    lwinfo("%s",pszFilename);
 	CPVRTString Path(s_ReadPath);
 	Path += pszFilename;
 

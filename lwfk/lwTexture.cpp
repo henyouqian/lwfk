@@ -12,15 +12,15 @@ namespace lw {
 	
 
 	TextureRes::TextureRes(const char* fileName, bool& ok)
-    :_glId(-1) {
+    :glId(-1) {
         ok = false;
 		assert(fileName);
-		_fileName = fileName;
+		fileName = fileName;
 
 		size_t len = strlen(fileName);
 		if ( len < 4 ) {
 			lwerror("texture file name too short: %s", fileName);
-			_glId = -1;
+			glId = -1;
 			return;
 		}
     
@@ -37,17 +37,17 @@ namespace lw {
 	}
 
 	int TextureRes::loadAndCreateOgl(const unsigned char* buf, int buflen) {
-		unsigned char* pImgData = SOIL_load_image_from_memory(buf, buflen, &_w, &_h, &_numChannels, SOIL_LOAD_AUTO);
+		unsigned char* pImgData = SOIL_load_image_from_memory(buf, buflen, &w, &h, &numChannels, SOIL_LOAD_AUTO);
         assert(pImgData);
-		_glId = SOIL_internal_create_OGL_texture(pImgData, _w, _h, _numChannels,
+		glId = SOIL_internal_create_OGL_texture(pImgData, w, h, numChannels,
 			SOIL_CREATE_NEW_ID, 0,
 			GL_TEXTURE_2D, GL_TEXTURE_2D,
 			GL_MAX_TEXTURE_SIZE);
 		
 		SOIL_free_image_data(pImgData);
 		
-		if ( _glId == 0 ){
-            _glId = -1;
+		if ( glId == 0 ){
+            glId = -1;
             return -1;
 		}
         return 0;
@@ -56,10 +56,10 @@ namespace lw {
 	}
 
 	TextureRes::~TextureRes() {
-		if ( _glId != -1 ){
-			glDeleteTextures(1, &_glId);
+		if ( glId != -1 ){
+			glDeleteTextures(1, &glId);
 		}
-        _resMgr.del(_fileName.c_str());
+        _resMgr.del(fileName.c_str());
 	}
 	TextureRes* TextureRes::create(const char* fileName){
 		assert(fileName);
@@ -80,25 +80,5 @@ namespace lw {
         }
         return NULL;
 	}
-    
-    GLuint TextureRes::getGlId(){
-        return _glId;
-    }
-    
-    const char* TextureRes::getFileName(){
-        return _fileName.c_str();
-    }
-    
-    int TextureRes::getWidth(){
-        return _w;
-    }
-    
-    int TextureRes::getHeight(){
-        return _h;
-    }
-    
-    int TextureRes::getChannelNum(){
-        return _numChannels;
-    }
 
 } //namespace lw

@@ -192,8 +192,8 @@ namespace lw {
     }
     
     void Sprite::setUV(float u, float v, float w, float h) {
-        float texW = (float)_pTexture->getWidth();
-        float texH = (float)_pTexture->getHeight();
+        float texW = (float)_pTexture->w;
+        float texH = (float)_pTexture->h;
         
         _u = u;
         _v = v;
@@ -208,8 +208,8 @@ namespace lw {
     
     void Sprite::uvInit() {
         _u = _v = 0.f;
-        _w = (float)_pTexture->getWidth();
-        _h = (float)_pTexture->getHeight();
+        _w = (float)_pTexture->w;
+        _h = (float)_pTexture->h;
         _u1 = _v1 = 0.f;
         _u2 = _v2 = 1.f;
     }
@@ -374,9 +374,9 @@ namespace lw {
 		_vertexPos[3].y = -ptt[3].y;
     }
     
-//    GLuint Sprite::getGlId(){
-//        return _pTextureRes->getGlId();
-//    }
+    TextureRes* Sprite:: getTexture(){
+        return _pTexture;
+    }
 
     
     //===============================================

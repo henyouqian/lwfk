@@ -7,8 +7,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE    := ogles2tools
 
 ### Add all source file names to be included in lib separated by a whitespace
-LOCAL_SRC_FILES := 	Tools/OGLES2/PVRTPrint3DAPI.cpp \
-					Tools/OGLES2/PVRTgles2Ext.cpp \
+LOCAL_SRC_FILES := 	Tools/OGLES2/PVRTgles2Ext.cpp \
 					Tools/OGLES2/PVRTTextureAPI.cpp \
 					Tools/OGLES2/PVRTBackground.cpp \
 					Tools/OGLES2/PVRTPFXParserAPI.cpp \
@@ -24,7 +23,6 @@ LOCAL_SRC_FILES += 	Tools/PVRTFixedPoint.cpp \
 					Tools/PVRTDecompress.cpp \
 					Tools/PVRTTriStrip.cpp \
 					Tools/PVRTTexture.cpp \
-					Tools/PVRTPrint3D.cpp \
 					Tools/PVRTResourceFile.cpp \
 					Tools/PVRTString.cpp \
 					Tools/PVRTStringHash.cpp \

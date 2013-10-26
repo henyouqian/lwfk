@@ -2,6 +2,7 @@
 #include "lwApp.h"
 #include "lwTask.h"
 #include "lwSprite.h"
+#include "lwSpriteNode.h"
 #include "lwRenderState.h"
 #include "lwSound.h"
 #include "lwLog.h"
@@ -14,11 +15,13 @@ namespace {
     public:
         App(){}
         virtual bool InitApplication() {
+            lwinfo("InitApplication()");
             lw::File::SetReadPath((char*)PVRShellGet(prefReadPath));
             lw::File::SetLoadReleaseFunctions(PVRShellGet(prefLoadFileFunc), PVRShellGet(prefReleaseFileFunc));
 
             lw::rsInit();
             lw::Sprite::init();
+            lw::SpriteNode::init();
             lw::soundInit();
             lw::Task::init();
             lwapp_init();
@@ -34,10 +37,12 @@ namespace {
             return true;
         }
         virtual bool QuitApplication() {
+            lwinfo("QuitApplication()");
             lwapp_quit();
             lw::Task::quit();
             lw::soundQuit();
             lw::Sprite::quit();
+            lw::SpriteNode::quit();
             return true;
         }
         virtual bool RenderScene() {
@@ -46,6 +51,7 @@ namespace {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             lw::Task::draw();
             lw::Sprite::flush();
+            lw::SpriteNode::flush();
             return true;
         }
     };

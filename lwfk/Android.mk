@@ -53,6 +53,8 @@ LOCAL_SRC_FILES +=	lwfk/lwApp.cpp \
 					lwfk/lwSoundAndroid.cpp \
 					lwfk/lwText.cpp \
 					lwfk/lwThread.cpp \
+					lwfk/UI/lwWidget.cpp \
+					lwfk/UI/lwButton.cpp \
 					libraries/soil/SOIL.c \
 				   	libraries/soil/image_DXT.c \
 				   	libraries/soil/image_helper.c \
@@ -68,7 +70,8 @@ LOCAL_C_INCLUDES := $(PVRSDKDIR)/Builds/Include \
 				    $(PVRSDKDIR)/Tools \
 				    $(PVRSDKDIR)/Tools/OGLES2 \
 				    $(NDKDIR)/sources/cxx-stl/stlport/stlport \
-				    $(LOCAL_PATH)/libraries
+				    $(LOCAL_PATH)/libraries \
+				    $(LOCAL_PATH)/lwfk
 
 LOCAL_CFLAGS := -DBUILD_OGLES2
 

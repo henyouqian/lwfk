@@ -15,12 +15,14 @@ namespace lw {
 
     void Task::init()
     {
+        lwinfo("Task::init()");
         assert(!_pTaskMgr);
         _pTaskMgr = new TaskMgr();
     }
 
     void Task::quit()
     {
+        lwinfo("Task::quit()");
         assert(_pTaskMgr);
         std::list<Task*>::iterator it = _pTaskMgr->running.begin();
         std::list<Task*>::iterator itend = _pTaskMgr->running.end();

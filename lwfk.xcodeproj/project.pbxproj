@@ -59,10 +59,15 @@
 		B34A6EA6176F7CA2002DBC4A /* stb_image_aug.c in Sources */ = {isa = PBXBuildFile; fileRef = B34A6E9F176F7CA2002DBC4A /* stb_image_aug.c */; };
 		B34A6EA917700929002DBC4A /* lwTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B34A6EA717700929002DBC4A /* lwTexture.cpp */; };
 		B34A6ECB17701026002DBC4A /* lwColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B34A6EC917701026002DBC4A /* lwColor.cpp */; };
+		B3527D311815743800034DAB /* lwWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3527D2F1815743800034DAB /* lwWidget.cpp */; };
+		B3527D3418157DC100034DAB /* lwButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3527D3218157DC100034DAB /* lwButton.cpp */; };
 		B370842D178C825700C71C5D /* lwMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B370842B178C825700C71C5D /* lwMaterial.cpp */; };
 		B37FC6511771BEE400A22473 /* lwSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B37FC6501771BEE400A22473 /* lwSprite.cpp */; };
 		B37FC6591773419C00A22473 /* lwTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B37FC6571773419C00A22473 /* lwTouch.cpp */; };
 		B3959B16179847870039D09E /* lwRes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3959B15179847870039D09E /* lwRes.cpp */; };
+		B3A5F8E3181B63B000778441 /* lwNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A5F8E1181B631700778441 /* lwNode.cpp */; };
+		B3A5F8E7181B9B9F00778441 /* lwSpriteNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A5F8E5181B9B9F00778441 /* lwSpriteNode.cpp */; };
+		B3A5F8EA181C460000778441 /* lwSceneNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A5F8E8181C460000778441 /* lwSceneNode.cpp */; };
 		B3A7EFFE175AFF2A002DE3F0 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A7EFF9175AFF2A002DE3F0 /* tinyxml2.cpp */; };
 		B3A7F009175B0408002DE3F0 /* lwEffects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A7F007175B0408002DE3F0 /* lwEffects.cpp */; };
 		B3CF95C0178740C100E0B6B9 /* lwLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3CF95BF178740C100E0B6B9 /* lwLog.cpp */; };
@@ -197,6 +202,10 @@
 		B34A6EA817700929002DBC4A /* lwTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwTexture.h; sourceTree = "<group>"; };
 		B34A6EC917701026002DBC4A /* lwColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwColor.cpp; sourceTree = "<group>"; };
 		B34A6ECA17701026002DBC4A /* lwColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwColor.h; sourceTree = "<group>"; };
+		B3527D2F1815743800034DAB /* lwWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lwWidget.cpp; path = UI/lwWidget.cpp; sourceTree = "<group>"; };
+		B3527D301815743800034DAB /* lwWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lwWidget.h; path = UI/lwWidget.h; sourceTree = "<group>"; };
+		B3527D3218157DC100034DAB /* lwButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lwButton.cpp; path = UI/lwButton.cpp; sourceTree = "<group>"; };
+		B3527D3318157DC100034DAB /* lwButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lwButton.h; path = UI/lwButton.h; sourceTree = "<group>"; };
 		B370842B178C825700C71C5D /* lwMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwMaterial.cpp; sourceTree = "<group>"; };
 		B370842C178C825700C71C5D /* lwMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwMaterial.h; sourceTree = "<group>"; };
 		B37724BF175A67EA0059300F /* lwLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwLog.h; sourceTree = "<group>"; };
@@ -205,6 +214,12 @@
 		B37FC6571773419C00A22473 /* lwTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwTouch.cpp; sourceTree = "<group>"; };
 		B37FC6581773419C00A22473 /* lwTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwTouch.h; sourceTree = "<group>"; };
 		B3959B15179847870039D09E /* lwRes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwRes.cpp; sourceTree = "<group>"; };
+		B3A5F8E1181B631700778441 /* lwNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lwNode.cpp; sourceTree = "<group>"; };
+		B3A5F8E2181B631700778441 /* lwNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lwNode.h; sourceTree = "<group>"; };
+		B3A5F8E5181B9B9F00778441 /* lwSpriteNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwSpriteNode.cpp; sourceTree = "<group>"; };
+		B3A5F8E6181B9B9F00778441 /* lwSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwSpriteNode.h; sourceTree = "<group>"; };
+		B3A5F8E8181C460000778441 /* lwSceneNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwSceneNode.cpp; sourceTree = "<group>"; };
+		B3A5F8E9181C460000778441 /* lwSceneNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwSceneNode.h; sourceTree = "<group>"; };
 		B3A7EFF9175AFF2A002DE3F0 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
 		B3A7EFFA175AFF2A002DE3F0 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
 		B3A7F003175B005D002DE3F0 /* lwRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lwRes.h; sourceTree = "<group>"; };
@@ -421,6 +436,30 @@
 			path = soil;
 			sourceTree = "<group>";
 		};
+		B3527D2E1815742C00034DAB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B3527D3218157DC100034DAB /* lwButton.cpp */,
+				B3527D3318157DC100034DAB /* lwButton.h */,
+				B3527D2F1815743800034DAB /* lwWidget.cpp */,
+				B3527D301815743800034DAB /* lwWidget.h */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		B3A5F8E0181B631700778441 /* node */ = {
+			isa = PBXGroup;
+			children = (
+				B3A5F8E1181B631700778441 /* lwNode.cpp */,
+				B3A5F8E2181B631700778441 /* lwNode.h */,
+				B3A5F8E5181B9B9F00778441 /* lwSpriteNode.cpp */,
+				B3A5F8E6181B9B9F00778441 /* lwSpriteNode.h */,
+				B3A5F8E8181C460000778441 /* lwSceneNode.cpp */,
+				B3A5F8E9181C460000778441 /* lwSceneNode.h */,
+			);
+			path = node;
+			sourceTree = "<group>";
+		};
 		B3A7EFEE175AFF2A002DE3F0 /* libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +509,8 @@
 		B3F760961759E24B00DE9BBF /* lwfk */ = {
 			isa = PBXGroup;
 			children = (
+				B3A5F8E0181B631700778441 /* node */,
+				B3527D2E1815742C00034DAB /* UI */,
 				B30067AB17B50563004ED93D /* lwText.cpp */,
 				B30067AC17B50563004ED93D /* lwText.h */,
 				B302474417B3F7B5004E727B /* lwSoundIOS.cpp */,
@@ -569,10 +610,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A5F8E3181B63B000778441 /* lwNode.cpp in Sources */,
 				B302475517B3F918004E727B /* alutCodec.c in Sources */,
 				B306FB031770A86800AA4963 /* PVRTVertex.cpp in Sources */,
 				B306FAE91770A86800AA4963 /* PVRTPFXSemantics.cpp in Sources */,
+				B3527D3418157DC100034DAB /* lwButton.cpp in Sources */,
 				B306FB001770A86800AA4963 /* PVRTTriStrip.cpp in Sources */,
+				B3527D311815743800034DAB /* lwWidget.cpp in Sources */,
 				B302475417B3F918004E727B /* alutBufferData.c in Sources */,
 				B306FAF21770A86800AA4963 /* PVRTMatrixF.cpp in Sources */,
 				B3F760EA1759E3B900DE9BBF /* lwApp.cpp in Sources */,
@@ -591,6 +635,7 @@
 				B306FAF91770A86800AA4963 /* PVRTQuaternionX.cpp in Sources */,
 				B306FAF31770A86800AA4963 /* PVRTMatrixX.cpp in Sources */,
 				B306FB011770A86800AA4963 /* PVRTUnicode.cpp in Sources */,
+				B3A5F8E7181B9B9F00778441 /* lwSpriteNode.cpp in Sources */,
 				B3CF95C0178740C100E0B6B9 /* lwLog.cpp in Sources */,
 				B306FADF1770A86800AA4963 /* PVRShellAPI.cpp in Sources */,
 				B306FAE51770A86800AA4963 /* PVRShell.cpp in Sources */,
@@ -624,6 +669,7 @@
 				B302475617B3F918004E727B /* alutError.c in Sources */,
 				B37FC6591773419C00A22473 /* lwTouch.cpp in Sources */,
 				B306FAEB1770A86800AA4963 /* PVRTShader.cpp in Sources */,
+				B3A5F8EA181C460000778441 /* lwSceneNode.cpp in Sources */,
 				B34A6ECB17701026002DBC4A /* lwColor.cpp in Sources */,
 				B306FAF51770A86800AA4963 /* PVRTModelPOD.cpp in Sources */,
 				B3D2604117943E9600C1D576 /* lwMesh.cpp in Sources */,

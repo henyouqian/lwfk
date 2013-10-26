@@ -11,9 +11,8 @@ namespace lw {
 		void retain() {
 			++_refCount;
 		}
-		int release() {
+		void release() {
 			--_refCount; if ( _refCount == 0 ) delete this;
-            return _refCount;
 		}
         int refCount() {
             return _refCount;

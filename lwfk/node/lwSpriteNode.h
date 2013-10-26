@@ -1,78 +1,58 @@
-#ifndef __LW_SPRITE_H__
-#define __LW_SPRITE_H__
+#ifndef __LW_SPRITE_NODE_H__
+#define __LW_SPRITE_NODE_H__
 
 #include "lwfk/lwColor.h"
+#include "lwfk/node/lwNode.h"
 
 namespace lw{
     
     class Material;
     class TextureRes;
     
-    struct SpriteVertex{
+    struct SptVertex{
         float x, y, z;
         float u, v;
         float r, g, b, a;
     };
     
-	class Sprite{
+	class SpriteNode : public Node{
     public:
-        static Sprite* create(const char *key, const char *fxName);
-        static Sprite* createFromFile(const char *textureFile, const char *fxName);
-        static Sprite* createFromAtlas(const char *key, const char *fxName);
-        ~Sprite();
+        static SpriteNode* create(const char *key, const char *fxName, Node* pParent);
+        static SpriteNode* createFromFile(const char *textureFile, const char *fxName, Node* pParent);
+        static SpriteNode* createFromAtlas(const char *key, const char *fxName, Node* pParent);
+        ~SpriteNode();
         void setUV(float u, float v, float w, float h);
         void getUV(float &u, float &v, float &w, float &h);
-		void setAnchor(float x, float y);
-        void getAnchor(float &x, float &y);
-        void setPos(float x, float y);
-		void getPos(float &x, float &y);
-        void setRotate(float r);
-		float getRotate();
-		void setScale(float x, float y);
-		void getScale(float &x, float &y);
 		void setSize(float w, float h);
 		void getSize(float &w, float &h);
         void setColor(const Color &color);
-        void setZ(float z);
-        void draw();
         TextureRes* getTexture();
         
         static void addAtlas(const char *file);
         
     private:
         void uvInit();
+        virtual void vFinalMatrixDidUpdate();
+        virtual void vDraw();
         
         Material *_pMaterial;
         TextureRes *_pTexture;
         std::string _materialKey;
-        float _ancX, _ancY;
-		float _posX, _posY;
-		float _rotate;
-		float _scaleX, _scaleY;
         Color _color;
         float _u, _v, _w, _h;
         float _u1, _v1, _u2, _v2;
-        float _z;
         PVRTVec2 _vertexPos[4];
-        bool _needUpdate;
+        SptVertex _vertices[6];
         
-        Sprite(const char *textureFile, const char *fxName, bool fromAtlas, bool &ok);
+        SpriteNode(Node* pParent, const char *textureFile, const char *fxName, bool fromAtlas, bool &ok);
         int loadFromFile(const char* textureFile, const char* fxName);
         int loadFromAtlas(const char *key, const char *fxName);
-        void update();
         
     public:
         static void init();
         static void quit();
         static void flush();
         static void onInitView();
-    };
-    
-    //==============================================
-    class Sprite9 {
-    public:
-        Sprite9();
-        ~Sprite9();
     };
     
 	

@@ -11,26 +11,26 @@ namespace lw {
     }
 	
 
-	TextureRes::TextureRes(const char* fileName, bool& ok)
+	TextureRes::TextureRes(const char* file, bool& ok)
     :glId(-1) {
         ok = false;
-		assert(fileName);
-		fileName = fileName;
+		assert(file);
+		fileName = file;
 
-		size_t len = strlen(fileName);
+		size_t len = strlen(file);
 		if ( len < 4 ) {
-			lwerror("texture file name too short: %s", fileName);
+			lwerror("texture file name too short: %s", file);
 			glId = -1;
 			return;
 		}
     
-        lw::File resFile(fileName);
+        lw::File resFile(file);
         if (resFile.IsOpen()) {
             if (loadAndCreateOgl((const unsigned char*)resFile.DataPtr(), resFile.Size())) {
-                lwerror("Failed to load texture: %s", fileName);
+                lwerror("Failed to load texture: %s", file);
             }
         } else {
-            lwerror("texture file is not exist: %s", fileName);
+            lwerror("texture file is not exist: %s", file);
             return;
         }
         ok = true;

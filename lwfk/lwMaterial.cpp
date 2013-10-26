@@ -350,6 +350,8 @@ namespace lw {
     }
     
     Material::~Material() {
+        if (_pEffects)
+            _pEffects->release();
         std::vector<MaterialInput*>::iterator it = _attribInputs.begin();
         std::vector<MaterialInput*>::iterator itend = _attribInputs.end();
         for (; it != itend; ++it) {
@@ -441,7 +443,7 @@ namespace lw {
     TextureRes* Material::setTexture(const char *inputName, const char *textureFile, GLint unit) {
         int location = glGetUniformLocation(_program, inputName);
         if (location == -1) {
-            lwerror("wrong input name: %s, %u", inputName, location);
+            lwerror("glGetUniformLocation error: inputName=%s, textureFile=%s, _program=%d", inputName, textureFile, _program);
             return NULL;
         }
         

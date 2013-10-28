@@ -2,6 +2,7 @@
 #include "lwTouch.h"
 #include "lwTask.h"
 #include "lwLog.h"
+#include "lwSceneNode.h"
 
 namespace lw{
     
@@ -22,6 +23,7 @@ namespace lw{
         if (it == _touchMap.end()) {
             it = _touchMap.insert(std::make_pair(key, touch)).first;
             Task::touchBegan(it->second);
+            SceneNode::sTouchBegan(it->second);
         }
     }
     
@@ -32,6 +34,7 @@ namespace lw{
             float prevY = it->second.y;
             it->second.set(x, y, prevX, prevY);
             Task::touchMoved(it->second);
+            SceneNode::sTouchMoved(it->second);
         }
     }
     
@@ -39,6 +42,7 @@ namespace lw{
         std::map<int, Touch>::iterator it = _touchMap.find(key);
         if (it != _touchMap.end()) {
             Task::touchEnded(it->second);
+            SceneNode::sTouchEnded(it->second);
             _touchMap.erase(it);
         }
     }
@@ -47,6 +51,7 @@ namespace lw{
         std::map<int, Touch>::iterator it = _touchMap.find(key);
         if (it != _touchMap.end()) {
             Task::touchCanceled(it->second);
+            SceneNode::sTouchCanceled(it->second);
         }
         _touchMap.erase(it);
     }

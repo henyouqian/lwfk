@@ -1,13 +1,12 @@
 #ifndef __LW_BUTTON_H__
 #define __LW_BUTTON_H__
 
-#include "lwWidget.h"
+#include "../lwNode.h"
 
 namespace lw{
-    class Widget;
     class Touch;
     class Button;
-    class Sprite;
+    class SpriteNode;
     
     //==================================
     class ButtonCallback{
@@ -20,7 +19,7 @@ namespace lw{
     //==================================
     struct SpriteButtonDef{
         ButtonCallback* callback;
-        Widget* parent;
+        Node* parent;
         const char *sptNormal, *sptDown, *sptDisable;
         float x, y;
         float overrideW, overrideH;
@@ -34,13 +33,13 @@ namespace lw{
     };
     
     //==================================
-    class Button : public Widget {
+    class Button : public Node {
     public:
         static Button* create(SpriteButtonDef &def);
         virtual ~Button();
         
     protected:
-        Button(Widget* parent, ButtonCallback* callback,
+        Button(Node* parent, ButtonCallback* callback,
                float x, float y, float w, float h,
                float extTop, float extBottom, float extLeft, float extRight);
         
@@ -61,9 +60,8 @@ namespace lw{
         ~SpriteButton();
         
     private:
-        virtual void vMoved();
         virtual void vDraw();
-        Sprite *_pSptNormal, *_pSptDown, *_pSptDisable;
+        SpriteNode *_pSptNormal, *_pSptDown, *_pSptDisable;
     };
     
     //

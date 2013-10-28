@@ -1,14 +1,14 @@
 #include "lwPrefix.h"
 #include "lwButton.h"
 #include "lwTouch.h"
-#include "lwSprite.h"
+#include "lwSpriteNode.h"
 
 namespace lw {
 
-    Button::Button(Widget* parent, ButtonCallback* callback,
+    Button::Button(Node* parent, ButtonCallback* callback,
                    float x, float y, float w, float h,
                    float extTop, float extBottom, float extLeft, float extRight)
-    :Widget(parent), _w(w), _h(h), _pCallback(callback), _pTouch(NULL)
+    :Node(parent), _w(w), _h(h), _pCallback(callback), _pTouch(NULL)
     ,_extTop(extTop), _extBottom(extBottom), _extLeft(extLeft), _extRight(extRight) {
         _x = x;
         _y = y;
@@ -24,12 +24,7 @@ namespace lw {
     
     bool Button::vTouchBegan(const Touch &touch) {
         if (!_pTouch) {
-            float xMin = _finalX - _extLeft;
-            float yMin = _finalY - _extTop;
-            float xMax = _finalX + _w + _extRight;
-            float yMax = _finalY + _h + _extBottom;
-            if (touch.x >= xMin && touch.x < xMax
-              && touch.y >= yMin && touch.y < yMax) {
+            if (isHit(-_extLeft, -_extTop, _w+_extRight, _h+_extBottom, touch.x, touch.y)) {
                 _pTouch = &touch;
                 if (_pCallback) {
                     _pCallback->vDown(this);
@@ -43,12 +38,7 @@ namespace lw {
     bool Button::vTouchEnded(const Touch &touch) {
         if (_pTouch == &touch) {
             _pTouch = NULL;
-            float xMin = _finalX - _extLeft;
-            float yMin = _finalY - _extTop;
-            float xMax = _finalX + _w + _extRight;
-            float yMax = _finalY + _h + _extBottom;
-            if (touch.x >= xMin && touch.x < xMax
-                && touch.y >= yMin && touch.y < yMax) {
+            if (isHit(-_extLeft, -_extTop, _w+_extRight, _h+_extBottom, touch.x, touch.y)) {
                 if (_pCallback) {
                     _pCallback->vClick(this);
                 }
@@ -67,7 +57,7 @@ namespace lw {
     :Button(def.parent, def.callback, def.x, def.y, 0, 0
             ,def.extTop, def.extBottom, def.extLeft, def.extRight) {
         if (def.sptNormal) {
-            _pSptNormal = Sprite::createFromAtlas(def.sptNormal, "normal");
+            _pSptNormal = SpriteNode::create(this, def.sptNormal, "normal");
             _pSptNormal->getSize(_w, _h);
         }
         
@@ -82,13 +72,13 @@ namespace lw {
         }
         
         if (def.sptDown) {
-            _pSptDown = Sprite::create(def.sptDown, "normal");
+            _pSptDown = SpriteNode::create(this, def.sptDown, "normal");
             if (needResize)
                 _pSptDown->setSize(_w, _h);
         }
         
         if (def.sptDisable) {
-            _pSptDisable = Sprite::create(def.sptDisable, "normal");
+            _pSptDisable = SpriteNode::create(this, def.sptDisable, "normal");
             if (needResize)
                 _pSptDisable->setSize(_w, _h);
         }
@@ -96,27 +86,12 @@ namespace lw {
         if (_pSptNormal && needResize) {
             _pSptNormal->setSize(_w, _h);
         }
+        
+        _autoDrawChild = false;
     }
     
     SpriteButton::~SpriteButton() {
-        if (_pSptNormal)
-            delete _pSptNormal;
-        if (_pSptDown)
-            delete _pSptDown;
-        if (_pSptDisable)
-            delete _pSptDisable;
-    }
-    
-    void SpriteButton::vMoved() {
-        if (_pSptNormal) {
-            _pSptNormal->setPos(_finalX, _finalY);
-        }
-        if (_pSptDown) {
-            _pSptDown->setPos(_finalX, _finalY);
-        }
-        if (_pSptDisable) {
-            _pSptDisable->setPos(_finalX, _finalY);
-        }
+        
     }
     
     void SpriteButton::vDraw() {

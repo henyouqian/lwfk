@@ -2,7 +2,7 @@
 #define __LW_SPRITE_NODE_H__
 
 #include "lwfk/lwColor.h"
-#include "lwfk/node/lwNode.h"
+#include "lwfk/lwNode.h"
 
 namespace lw{
     
@@ -17,9 +17,9 @@ namespace lw{
     
 	class SpriteNode : public Node{
     public:
-        static SpriteNode* create(const char *key, const char *fxName, Node* pParent);
-        static SpriteNode* createFromFile(const char *textureFile, const char *fxName, Node* pParent);
-        static SpriteNode* createFromAtlas(const char *key, const char *fxName, Node* pParent);
+        static SpriteNode* create(Node* pParent, const char *key, const char *fxName);
+        static SpriteNode* createFromFile(Node* pParent, const char *textureFile, const char *fxName);
+        static SpriteNode* createFromAtlas(Node* pParent, const char *key, const char *fxName);
         ~SpriteNode();
         void setUV(float u, float v, float w, float h);
         void getUV(float &u, float &v, float &w, float &h);

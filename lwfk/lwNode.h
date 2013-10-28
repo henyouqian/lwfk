@@ -34,6 +34,8 @@ namespace lw{
         void setMatrix(PVRTMat4 &mat);
         PVRTMat4* getMatrix();
         const PVRTMat4& getFinalMatrix();
+        
+        bool isHit(float x, float y, float w, float h, float hitX, float hitY);
 
     protected:
 		virtual void vUpdate() {}
@@ -62,6 +64,7 @@ namespace lw{
         
         bool _show;
         bool _enable;
+        bool _autoDrawChild;
 	};
 
 } //namespace lw

@@ -4,7 +4,7 @@
 namespace lw {
 
     Node::Node(Node *pParent)
-    :_isDirty(true), _pParent(pParent), _show(true), _enable(true)
+    :_isDirty(true), _pParent(pParent), _show(true), _enable(true), _autoDrawChild(true)
     ,_x(0), _y(0), _z(0), _rotateZ(0), _scaleX(1.f), _scaleY(1.f)
     ,_pivotX(0), _pivotY(0), _pCustomMat(NULL){
         if (pParent) {
@@ -13,7 +13,22 @@ namespace lw {
     }
     
     Node::~Node() {
+        if (_pParent) {
+            std::list<Node*>::iterator it = _pParent->_chidren.begin();
+            std::list<Node*>::iterator itend = _pParent->_chidren.end();
+            for (; it != itend; ++it) {
+                if (this == *it) {
+                    _pParent->_chidren.erase(it);
+                    break;
+                }
+            }
+        }
         
+        std::list<Node*>::iterator it = _chidren.begin();
+        std::list<Node*>::iterator itend = _chidren.end();
+        for (; it != itend; ++it) {
+            delete *it;
+        }
     }
     
     void Node::setPos(float x, float y) {
@@ -153,10 +168,12 @@ namespace lw {
         
         vDraw();
         
-        std::list<Node*>::iterator it = _chidren.begin();
-        std::list<Node*>::iterator itend = _chidren.end();
-        for (; it != itend; ++it) {
-            (*it)->draw();
+        if (_autoDrawChild) {
+            std::list<Node*>::iterator it = _chidren.begin();
+            std::list<Node*>::iterator itend = _chidren.end();
+            for (; it != itend; ++it) {
+                (*it)->draw();
+            }
         }
     }
     
@@ -222,6 +239,16 @@ namespace lw {
         }
         
         return vTouchCanceled(touch);
+    }
+    
+    bool Node::isHit(float x, float y, float w, float h, float hitX, float hitY) {
+        PVRTVec4 vHit(hitX, hitY, 0, 1.f);
+        PVRTTransformBack( &vHit, &vHit, &(getFinalMatrix()));
+        if (vHit.x >= x && vHit.x < x + w
+          && vHit.y >= y && vHit.y < y + h) {
+            return true;
+        }
+        return false;
     }
 
 } //namespace lw

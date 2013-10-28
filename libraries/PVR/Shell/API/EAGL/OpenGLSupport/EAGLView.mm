@@ -563,8 +563,8 @@
 		if(_scale != 1.0)
 			touchLocation.x*=_scale;touchLocation.y*=_scale;
 		
-		float Position[2] = { touchLocation.x, touchLocation.y };
-		m_pPVRShellInit->BeganTouch(Position, m_pPVRShellInit);
+		//float Position[2] = { touchLocation.x, touchLocation.y };
+		//m_pPVRShellInit->BeganTouch(Position, m_pPVRShellInit);
         
         lw::touchBegan((int)touch, touchLocation.x, touchLocation.y);
 	}
@@ -583,8 +583,8 @@
 		if(_scale != 1.0)
 			touchLocation.x*=_scale;touchLocation.y*=_scale;
 		
-		float Position[2] = { touchLocation.x, touchLocation.y };
-		m_pPVRShellInit->MovedTouch(Position, m_pPVRShellInit);
+//		float Position[2] = { touchLocation.x, touchLocation.y };
+//		m_pPVRShellInit->MovedTouch(Position, m_pPVRShellInit);
         
 //        CGPoint prevLocation = [touch previousLocationInView:self];
 //        if(_scale != 1.0)
@@ -605,8 +605,8 @@
 		if(_scale != 1.0)
 			touchLocation.x*=_scale;touchLocation.y*=_scale;
 		
-		float Position[2] = { touchLocation.x, touchLocation.y };
-		m_pPVRShellInit->EndedTouch(Position, m_pPVRShellInit);
+//		float Position[2] = { touchLocation.x, touchLocation.y };
+//		m_pPVRShellInit->EndedTouch(Position, m_pPVRShellInit);
         
         lw::touchEnded((int)touch, touchLocation.x, touchLocation.y);
 	}

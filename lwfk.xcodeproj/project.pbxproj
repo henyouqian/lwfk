@@ -65,9 +65,9 @@
 		B37FC6511771BEE400A22473 /* lwSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B37FC6501771BEE400A22473 /* lwSprite.cpp */; };
 		B37FC6591773419C00A22473 /* lwTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B37FC6571773419C00A22473 /* lwTouch.cpp */; };
 		B3959B16179847870039D09E /* lwRes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3959B15179847870039D09E /* lwRes.cpp */; };
-		B3A5F8E3181B63B000778441 /* lwNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A5F8E1181B631700778441 /* lwNode.cpp */; };
 		B3A5F8E7181B9B9F00778441 /* lwSpriteNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A5F8E5181B9B9F00778441 /* lwSpriteNode.cpp */; };
 		B3A5F8EA181C460000778441 /* lwSceneNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A5F8E8181C460000778441 /* lwSceneNode.cpp */; };
+		B3A5F8F7181D151400778441 /* lwNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A5F8F5181D151400778441 /* lwNode.cpp */; };
 		B3A7EFFE175AFF2A002DE3F0 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A7EFF9175AFF2A002DE3F0 /* tinyxml2.cpp */; };
 		B3A7F009175B0408002DE3F0 /* lwEffects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3A7F007175B0408002DE3F0 /* lwEffects.cpp */; };
 		B3CF95C0178740C100E0B6B9 /* lwLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3CF95BF178740C100E0B6B9 /* lwLog.cpp */; };
@@ -214,12 +214,12 @@
 		B37FC6571773419C00A22473 /* lwTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwTouch.cpp; sourceTree = "<group>"; };
 		B37FC6581773419C00A22473 /* lwTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwTouch.h; sourceTree = "<group>"; };
 		B3959B15179847870039D09E /* lwRes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwRes.cpp; sourceTree = "<group>"; };
-		B3A5F8E1181B631700778441 /* lwNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lwNode.cpp; sourceTree = "<group>"; };
-		B3A5F8E2181B631700778441 /* lwNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lwNode.h; sourceTree = "<group>"; };
 		B3A5F8E5181B9B9F00778441 /* lwSpriteNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwSpriteNode.cpp; sourceTree = "<group>"; };
 		B3A5F8E6181B9B9F00778441 /* lwSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwSpriteNode.h; sourceTree = "<group>"; };
 		B3A5F8E8181C460000778441 /* lwSceneNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwSceneNode.cpp; sourceTree = "<group>"; };
 		B3A5F8E9181C460000778441 /* lwSceneNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwSceneNode.h; sourceTree = "<group>"; };
+		B3A5F8F5181D151400778441 /* lwNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lwNode.cpp; sourceTree = "<group>"; };
+		B3A5F8F6181D151400778441 /* lwNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwNode.h; sourceTree = "<group>"; };
 		B3A7EFF9175AFF2A002DE3F0 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
 		B3A7EFFA175AFF2A002DE3F0 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
 		B3A7F003175B005D002DE3F0 /* lwRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lwRes.h; sourceTree = "<group>"; };
@@ -450,8 +450,6 @@
 		B3A5F8E0181B631700778441 /* node */ = {
 			isa = PBXGroup;
 			children = (
-				B3A5F8E1181B631700778441 /* lwNode.cpp */,
-				B3A5F8E2181B631700778441 /* lwNode.h */,
 				B3A5F8E5181B9B9F00778441 /* lwSpriteNode.cpp */,
 				B3A5F8E6181B9B9F00778441 /* lwSpriteNode.h */,
 				B3A5F8E8181C460000778441 /* lwSceneNode.cpp */,
@@ -509,6 +507,8 @@
 		B3F760961759E24B00DE9BBF /* lwfk */ = {
 			isa = PBXGroup;
 			children = (
+				B3A5F8F5181D151400778441 /* lwNode.cpp */,
+				B3A5F8F6181D151400778441 /* lwNode.h */,
 				B3A5F8E0181B631700778441 /* node */,
 				B3527D2E1815742C00034DAB /* UI */,
 				B30067AB17B50563004ED93D /* lwText.cpp */,
@@ -610,7 +610,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3A5F8E3181B63B000778441 /* lwNode.cpp in Sources */,
 				B302475517B3F918004E727B /* alutCodec.c in Sources */,
 				B306FB031770A86800AA4963 /* PVRTVertex.cpp in Sources */,
 				B306FAE91770A86800AA4963 /* PVRTPFXSemantics.cpp in Sources */,
@@ -647,6 +646,7 @@
 				B306FADE1770A86800AA4963 /* EAGLView.mm in Sources */,
 				B302475B17B3F918004E727B /* alutUtil.c in Sources */,
 				B306FB021770A86800AA4963 /* PVRTVector.cpp in Sources */,
+				B3A5F8F7181D151400778441 /* lwNode.cpp in Sources */,
 				B306FAF01770A86800AA4963 /* PVRTFixedPoint.cpp in Sources */,
 				B302475717B3F918004E727B /* alutInit.c in Sources */,
 				B302475C17B3F918004E727B /* alutVersion.c in Sources */,

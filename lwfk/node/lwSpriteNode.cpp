@@ -93,16 +93,16 @@ namespace lw {
     
     
     //====================================================
-    SpriteNode* SpriteNode::create(const char *key, const char *fxName, Node* pParent) {
+    SpriteNode* SpriteNode::create(Node* pParent, const char *key, const char *fxName) {
         std::map<std::string, AtlasInfo>::iterator it = _atlasMap.find(key);
         if (it != _atlasMap.end()) {
-            return createFromAtlas(key, fxName, pParent);
+            return createFromAtlas(pParent, key, fxName);
         } else {
-            return createFromFile(key, fxName, pParent);
+            return createFromFile(pParent, key, fxName);
         }
     }
     
-	SpriteNode* SpriteNode::createFromFile(const char* textureFile, const char* fxName, Node* pParent) {
+	SpriteNode* SpriteNode::createFromFile(Node* pParent, const char* textureFile, const char* fxName) {
         assert(textureFile && fxName);
         bool ok = false;
         SpriteNode* p = new SpriteNode(pParent, textureFile, fxName, false, ok);
@@ -117,7 +117,7 @@ namespace lw {
         return NULL;
     }
     
-    SpriteNode* SpriteNode::createFromAtlas(const char* key, const char* fxName, Node* pParent) {
+    SpriteNode* SpriteNode::createFromAtlas(Node* pParent, const char* key, const char* fxName) {
         bool ok = false;
         SpriteNode* p = new SpriteNode(pParent, key, fxName, true, ok);
         if (p){
